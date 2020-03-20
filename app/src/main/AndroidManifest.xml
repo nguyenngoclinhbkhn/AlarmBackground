@@ -22,6 +22,8 @@
         <receiver
             android:name=".AlarmRecicver"
             android:enabled="true">
+        </receiver>
+        <receiver android:name=".BootCompleteReceiver"  android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>

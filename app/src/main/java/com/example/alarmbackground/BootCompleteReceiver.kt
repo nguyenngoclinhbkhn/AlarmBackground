@@ -17,7 +17,7 @@ class BootCompleteReceiver : BroadcastReceiver() {
             val alarmManager  = context?.getSystemService(Context.ALARM_SERVICE) as AlarmManager
             var intent2 = Intent(context,AlarmRecicver::class.java)
             val pendingIntent = PendingIntent.getBroadcast(context,
-                0, intent, 0)
+                0, intent2, 0)
             alarmManager.setRepeating(
                 AlarmManager.RTC_WAKEUP,
                 SystemClock.elapsedRealtime() + 5000, 5000,
