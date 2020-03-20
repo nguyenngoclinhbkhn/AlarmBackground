@@ -1,5 +1,7 @@
 package com.example.alarmbackground.client
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -12,6 +14,7 @@ class ClientAPI {
         private var retrofit: Retrofit? = null
 //        private val logging: HttpLoggingInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
 
+        @RequiresApi(Build.VERSION_CODES.O)
         private val client: OkHttpClient = OkHttpClient.Builder().build()
 
         private fun getRetrofit(): Retrofit {
