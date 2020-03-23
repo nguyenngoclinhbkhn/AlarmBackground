@@ -14,7 +14,6 @@ class ClientAPI {
         private var retrofit: Retrofit? = null
 //        private val logging: HttpLoggingInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
 
-        @RequiresApi(Build.VERSION_CODES.O)
         private val client: OkHttpClient = OkHttpClient.Builder().build()
 
         private fun getRetrofit(): Retrofit {

@@ -12,7 +12,8 @@ import android.util.Log
 
 class BootCompleteReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
-        if (intent?.action == Intent.ACTION_BOOT_COMPLETED){
+//        if (intent?.action == Intent.ACTION_BOOT_COMPLETED ||
+//                intent?.action == Intent.ACTION_REBOOT){
             Log.e("TAG", "reboot")
             val alarmManager  = context?.getSystemService(Context.ALARM_SERVICE) as AlarmManager
             var intent2 = Intent(context,AlarmRecicver::class.java)
@@ -20,9 +21,9 @@ class BootCompleteReceiver : BroadcastReceiver() {
                 0, intent2, 0)
             alarmManager.setRepeating(
                 AlarmManager.RTC_WAKEUP,
-                SystemClock.elapsedRealtime() + 2000, 2000,
+                System.currentTimeMillis() + 900000, 900000,
                 pendingIntent)
-        }
+//        }
     }
 
 }
