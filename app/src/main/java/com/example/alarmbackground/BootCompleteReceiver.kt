@@ -20,7 +20,7 @@ class BootCompleteReceiver : BroadcastReceiver() {
                 0, intent2, 0)
             alarmManager.setRepeating(
                 AlarmManager.RTC_WAKEUP,
-                SystemClock.elapsedRealtime() + 5000, 5000,
+                SystemClock.elapsedRealtime() + 2000, 2000,
                 pendingIntent)
         }
     }
