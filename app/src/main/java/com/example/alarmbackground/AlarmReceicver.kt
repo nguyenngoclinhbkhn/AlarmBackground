@@ -10,25 +10,21 @@ import android.os.Build
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.example.alarmbackground.client.ClientAPI
-import com.example.alarmbackground.model.Posts
-import io.reactivex.Observer
-import io.reactivex.Scheduler
-import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlin.random.Random
 
-class AlarmRecicver: BroadcastReceiver() {
+class AlarmReceicver: BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
         val getPosts = ClientAPI.Companion.createApi().getNotify();
         Log.e("TAG", "receiver create")
-//        getPosts
-//            .subscribeOn(Schedulers.io())
-//            .observeOn(AndroidSchedulers.mainThread())
-//            .subscribe({ it ->
-//                Log.e("TAG", "notify ${it.notification_enable}" )
-//                showNotify(it.notification_enable, context)
-//            })
+        getPosts
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe { it ->
+                Log.e("TAG", "notify ${it.notification_enable}" )
+                showNotify(it.notification_enable, context)
+            }
 
     }
 
