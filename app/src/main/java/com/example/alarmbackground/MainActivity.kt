@@ -23,21 +23,21 @@ class MainActivity : AppCompatActivity() {
         btnAlarm.setOnClickListener {
             Log.e("TAG", "Start alarm")
             val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
-            var intent = Intent(this, AlarmRecicver::class.java)
+            var intent = Intent(this, AlarmReceiver::class.java)
             val pendingIntent = PendingIntent.getBroadcast(
                 this,
                 0, intent, 0
             )
             alarmManager.setRepeating(
                 AlarmManager.RTC_WAKEUP,
-                System.currentTimeMillis() + 900000, 900000,
+                System.currentTimeMillis() + 2000, 2000,
                 pendingIntent
             )
         }
 
         turnOff.setOnClickListener {
             val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
-            val intent = Intent(this, AlarmRecicver::class.java)
+            val intent = Intent(this, AlarmReceiver::class.java)
             val pendingIntent = PendingIntent.getBroadcast(applicationContext, 0, intent, 0)
             alarmManager.cancel(pendingIntent)
             Toast.makeText(this, "Turn off alarm ", Toast.LENGTH_SHORT).show()

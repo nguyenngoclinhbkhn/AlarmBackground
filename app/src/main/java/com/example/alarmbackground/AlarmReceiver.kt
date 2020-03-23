@@ -18,7 +18,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlin.random.Random
 
-class AlarmRecicver: BroadcastReceiver() {
+class AlarmReceiver: BroadcastReceiver() {
     override fun onReceive(context: Context?, intent: Intent?) {
         val getPosts = ClientAPI.Companion.createApi().getNotify();
         Log.e("TAG", "receiver create")
